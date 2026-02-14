@@ -1,0 +1,102 @@
+
+
+{
+  "brand": "Allbirds",
+  "tasks": [
+    {
+      "task_id": "T1",
+      "query": "Allbirds review",
+      "intent": "baseline sentiment in reviews",
+      "severity_hint": "medium"
+    },
+    {
+      "task_id": "T2",
+      "query": "Allbirds complaint",
+      "intent": "customer complaints and issues",
+      "severity_hint": "high"
+    },
+    {
+      "task_id": "T3",
+      "query": "Allbirds scam",
+      "intent": "scam accusations / fraud claims",
+      "severity_hint": "high"
+    },
+    {
+      "task_id": "T4",
+      "query": "Allbirds lawsuit",
+      "intent": "legal risk signals",
+      "severity_hint": "high"
+    },
+    {
+      "task_id": "T5",
+      "query": "Allbirds quality issue",
+      "intent": "quality / durability issues",
+      "severity_hint": "high"
+    },
+    {
+      "task_id": "T6",
+      "query": "Allbirds returns refund problem",
+      "intent": "returns/refund friction",
+      "severity_hint": "medium"
+    },
+    {
+      "task_id": "T7",
+      "query": "Allbirds advertising reaction",
+      "intent": "ad creative reaction signals",
+      "severity_hint": "medium"
+    },
+    {
+      "task_id": "T8",
+      "query": "Allbirds marketing criticism",
+      "intent": "marketing / messaging backlash",
+      "severity_hint": "medium"
+    },
+    {
+      "task_id": "T9",
+      "query": "Allbirds controversy",
+      "intent": "brand controversy / PR crisis",
+      "severity_hint": "high"
+    },
+    {
+      "task_id": "T10",
+      "query": "Allbirds greenwashing",
+      "intent": "sustainability claims skepticism",
+      "severity_hint": "high"
+    },
+    {
+      "task_id": "T11",
+      "query": "Allbirds reddit",
+      "intent": "community discussion signal",
+      "severity_hint": "medium"
+    },
+    {
+      "task_id": "T12",
+      "query": "Allbirds news",
+      "intent": "recent news signal",
+      "severity_hint": "medium"
+    }
+  ],
+  "repeat_per_strategy": 3,
+  "strategies": [
+    {
+      "strategy_id": "A",
+      "name": "free_planning",
+      "description": "No domain restriction; agent can follow any relevant result."
+    },
+    {
+      "strategy_id": "B",
+      "name": "allowlist_only",
+      "description": "Restrict navigation to domains in datasets/allowlist.txt."
+    },
+    {
+      "strategy_id": "C",
+      "name": "allowlist_plus_semantic_validation",
+      "description": "Allowlist + require page title to contain brand string; otherwise abandon and retry."
+    }
+  ],
+  "run_defaults": {
+    "timeout_seconds": 90,
+    "max_steps": 8,
+    "save_screenshot_on_failure": true
+  }
+}
