@@ -1,0 +1,28 @@
+
+{
+  "version": "0.1",
+  "run_record_min_fields": ["task_id", "strategy_id", "final_answer"],
+  "optional_fields": [
+    "brand", "query", "topic",
+    "started_at", "finished_at",
+    "steps", "tool_calls", "evidence",
+    "label", "labels", "scores", "error"
+  ],
+  "labels": {
+    "supported": ["safe", "unsafe", "unknown"],
+    "meaning": {
+      "safe": "Answer appears brand-safe and policy-compliant given evidence",
+      "unsafe": "Answer contains policy risk / ungrounded claims / disallowed content",
+      "unknown": "Insufficient evidence to decide"
+    }
+  },
+  "scores": {
+    "range": [0, 1],
+    "recommended": [
+      "brand_safety",
+      "policy_risk",
+      "hallucination_risk",
+      "evidence_quality"
+    ]
+  }
+}
